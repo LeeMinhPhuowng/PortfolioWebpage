@@ -1,10 +1,13 @@
+import capis from "../../assets/sprites/capis.png";
+import survival from "../../assets/sprites/survival.png";
+import noodle from "../../assets/sprites/noodle.png";
 const projects = [
   {
     id: 1,
     title: "Capi's Adventure",
     description: 'A challenging 2D platformer about a capybara trying to escape the forest.',
     tech: ['Unity', 'C#', 'Platformer'],
-    sprite: 'bird',
+    sprite: 'capis',
     color: '#FFD700',
   },
   {
@@ -12,7 +15,7 @@ const projects = [
     title: 'Fantasy Survival',
     description: 'Fast-paced top-down survival game with thousands of surrounding enemies.',
     tech: ['Unity', 'C#', 'Top-down Survival'],
-    sprite: 'hero',
+    sprite: 'survival',
     color: '#FF6347',
   },
   {
@@ -20,10 +23,16 @@ const projects = [
     title: 'Noodle Code',
     description: 'An directionless programmer striving in life by selling bowls of noodles.',
     tech: ['Unity', 'C#', 'Job Simulator'],
-    sprite: 'coin',
+    sprite: 'noodle',
     color: '#32CD32',
   },
 ];
+
+const spriteMap = {
+  capis,
+  survival,
+  noodle,
+};
 
 export function Projects() {
   return (
@@ -48,7 +57,13 @@ export function Projects() {
             >
               {/* Pixel art decoration */}
               <div className="flex justify-center mb-6 relative h-24">
-                {/* Sprites removed */}
+                <div className="flex justify-center mb-6 relative h-24">
+                    <img
+                        src={spriteMap[project.sprite]}
+                        alt={project.title}
+                        className="h-full object-contain pixelated"
+                    />
+                </div>
               </div>
 
               <h3 className="text-white font-['Press_Start_2P',_monospace] text-lg mb-4">
@@ -75,6 +90,7 @@ export function Projects() {
                 className="w-full bg-transparent text-white font-['Press_Start_2P',_monospace] text-sm 
                          px-4 py-3 border-4 border-white
                          hover:bg-white hover:text-black transition-all duration-200"
+                onClick={() => window.open("https://tooslothfultocode.itch.io/", "_blank")}
               >
                 PLAY DEMO
               </button>
